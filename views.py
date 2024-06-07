@@ -1,12 +1,10 @@
-from django.http import JsonResponse
 from django.shortcuts import render
 from .models import Drink
 from .serializers import DrinksSerializers
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from django.http import HttpResponse
-from django.template.response import TemplateResponse
+
 
 @api_view(['GET','POST'])
 def drink_list (request):
@@ -48,3 +46,4 @@ def home(request):
     Drinks =  Drink.objects.all()
     context = { 'drinks': Drinks}
     return render(request, "index.html", context)
+
