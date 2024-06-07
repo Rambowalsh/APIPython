@@ -1,0 +1,40 @@
+<html>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        a:link {
+            text-decoration: none;
+        }
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: Lightgreen;
+        }
+    </style>
+{% if drinks %}{{ Drinks }}
+    <table border="1" width="90%">
+        <tr>
+            <th>Drink Name</th>
+            <th>Drink Description</th>
+            <th>Price</th>
+            <th>id</th>
+        </tr>
+        {% for i in drinks %}
+            <tr>
+                <td>{{i.name}}</td>
+                <td>{{i.description}}</td>
+                <td>{{i.price}}</td>
+                <td><a href="http://127.0.0.1:8000/drinks/{{i.id}}">{{i.id}}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+<p>Click ID to amend Drink</p>
+<p>Click <a href="http://127.0.0.1:8000/drinks">Here to add drinks</a></p>
+</html>
